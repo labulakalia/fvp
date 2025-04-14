@@ -3,6 +3,7 @@
 // see https://github.com/ardera/flutter_packages/blob/main/packages/flutterpi_gstreamer_video_player/lib/src/controller.dart
 import 'dart:typed_data';
 
+import 'package:fvp/mdk.dart';
 import 'package:video_player/video_player.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 
@@ -41,6 +42,11 @@ extension FVPControllerExtensions on VideoPlayerController {
   /// https://github.com/wang-bin/mdk-sdk/wiki/Player-APIs#void-setpropertyconst-stdstring-key-const-stdstring-value
   void setProperty(String name, String value) {
     _platform.setProperty(textureId, name, value);
+  }
+
+  // https://github.com/wang-bin/mdk-sdk/wiki/Player-APIs#player-oneventstdfunctionboolconst-mediaevent-cb-callbacktoken-token--nullptr
+  void onEvent(void Function(MediaEvent)? callback) {
+    _platform.onEvent(textureId, callback);
   }
 
   /// Change video decoder list on the fly.

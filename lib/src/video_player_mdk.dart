@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/widgets.dart'; //
 import 'package:flutter/services.dart';
+import 'package:fvp/mdk.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 import 'package:logging/logging.dart';
 import 'package:http/http.dart' as http;
@@ -391,6 +392,10 @@ class MdkVideoPlayerPlatform extends VideoPlayerPlatform {
 
   void setProperty(int textureId, String name, String value) {
     _players[textureId]?.setProperty(name, value);
+  }
+
+  void onEvent(int textureId, void Function(MediaEvent)? callback) {
+    return _players[textureId]?.onEvent(callback);
   }
 
   void setAudioDecoders(int textureId, List<String> value) {
