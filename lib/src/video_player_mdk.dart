@@ -493,6 +493,12 @@ class MdkVideoPlayerPlatform extends VideoPlayerPlatform {
     _players[textureId]?.setMedia(uri, mdk.MediaType.video);
   }
 
+  void setNextVideo(int textureId, String uri,
+      {int from = 0,
+      SeekFlag seekFlag = const SeekFlag(SeekFlag.defaultFlags)}) {
+    _players[textureId]?.setNext(uri, from: from, seekFlag: seekFlag);
+  }
+
   void setExternalSubtitle(int textureId, String uri) {
     _players[textureId]?.setMedia(uri, mdk.MediaType.subtitle);
   }

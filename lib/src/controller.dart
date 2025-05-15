@@ -179,4 +179,10 @@ extension FVPControllerExtensions on VideoPlayerController {
   void setExternalSubtitle(String uri) {
     _platform.setExternalSubtitle(textureId, uri);
   }
+
+  /// set an external video data source
+  /// https://github.com/wang-bin/mdk-sdk/wiki/Player-APIs#void-setmediaconst-char-url-mediatype-type
+  void setNextVideo(String uri) {
+    _platform.setExternalVideo(textureId, uri);
+  }
 }
